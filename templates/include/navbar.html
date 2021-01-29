@@ -1,0 +1,135 @@
+{% load static %}
+{% load clothes_tag %}
+<!-- Navbar -->
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar">
+
+    <div class="container-fluid">
+
+
+      <!-- Brand -->
+      <a class="navbar-brand waves-effect" href="/">
+        <strong class="blue-text">Прима</strong>
+      </a>
+
+      <!-- Collapse -->
+      <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Links -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <!-- Left -->
+        <ul class="navbar-nav mr-auto">
+
+            <li>
+                    <div class="dropdown">
+                                    <button class="btn btn-light dropdown-toggle" type="button" data-toggle="dropdown">
+                                        Информация
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="/abouts/">О нас!</a>
+
+                                    </div>
+                    </div>
+            </li>
+            <li>
+                    <div class="dropdown">
+                                    <button class="btn btn-light dropdown-toggle" type="button" data-toggle="dropdown">
+                                        Перевозки
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a tabindex="-1" href="/transport">Обзор перевозок</a>
+                                    {% for transPut in view.get_transPut %}
+                                        <a class="dropdown-item"  href="{{ transPut.get_absolute_url }}">{{ transPut.title }}</a></a>
+                                    {% endfor %}
+                                    </div>
+                    </div>
+            </li>
+
+            <li class="nav-item active">
+                                  <div class="dropdown">
+                                    <button class="btn btn-light dropdown-toggle" type="button" data-toggle="dropdown">
+                                        Ремонт и услуги
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a tabindex="-1" href="/servicese">Обзор услуг</a>
+                                        {% for service in view.get_servic %}
+                                            <a class="dropdown-item" href="{{ service.get_absolute_url }}">{{ service }}</a></a>
+                                        {% endfor %}
+                                    </div>
+                    </div>
+
+            </li>
+
+
+
+            <li>
+            <div class="dropdown">
+                            <button class="btn btn-light dropdown-toggle" type="button" data-toggle="dropdown">
+                                Наш автопарк
+                            </button>
+                            <div class="dropdown-menu">
+                                {% for avto in view.get_avto %}
+                                    <a href="{{ avto.get_absolute_url }}">{{ avto.title }}</a>
+                                {% endfor %}
+                            </div>
+            </div>
+            </li>
+
+            <li class="nav-item active">
+              <a type="button" class="btn btn-indigo" href="/transport/communication" role="button">Контакты</a>
+
+          </li>
+        </ul>
+
+          <ul id="dpl-navbar-new-right-buttons" class="navbar-nav ms-auto d-flex flex-row">
+
+          <!-- Notifications -->
+          <li class="nav-item me-3 me-lg-0 dropdown">
+            <a class="nav-link dropdown-toggle hidden-arrow" role="button" alt="Notifications" data-mdb-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <i class="fas fa-phone" alt="Notifications"></i>
+              <span  class="badge rounded-pill badge-notification bg-danger" alt="Notifications" style="">+7 999 999 99 99</span>
+            </a>
+            <a  href="mailto:example@example.ru" class="nav-link dropdown-toggle hidden-arrow" role="button" alt="Notifications" data-mdb-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <i class="fas fa-envelope-square"></i>
+              <span  class="badge rounded-pill badge-notification bg-danger" alt="Notifications" style="">Напишите</span>
+            </a>
+
+            <div id="mdb-5-search-container">
+                <form action="{% url 'search' %}"
+                      class="d-none d-md-flex input-group w-auto my-auto"
+                      method="get"
+                >
+                  <input id="mdb-5-search-input"
+                         autocomplete="off"
+                         name="q"
+                         type="search" class="form-control rounded"
+                         placeholder="Найти на сайте!">
+                    <span class="input-group-text border-0">
+                    <span class="input-group-text border-0">
+          <i class="fas fa-search" id="mdb-5-search-icon"></i>
+                    </span></span>
+
+                </form>
+                <div id="mdb-5-search-dropdown" class="rounded shadow-5">
+                  <ul id="mdb-5-search-list" class="list-unstyled mb-0 ps">
+                      <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div>
+                      <div class="ps__rail-y" style="top: 0px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></ul>
+                  <hr class="my-0">
+
+                </div>
+              </div>
+
+            </ul>
+
+
+
+        </div>
+
+
+  </div>
+
+  </nav>
+  <!-- Navbar -->

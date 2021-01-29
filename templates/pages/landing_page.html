@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<body>
+<div class="d-flex align-items-end bg-light mb-3" style="height: 125px;">
+</div>
+  <!-- Full Page Intro -->
+  <div class="view full-page-intro" style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/78.jpg'); background-repeat: no-repeat; background-size:cover;height: 150%;">
+
+    <!-- Mask & flexbox options-->
+    <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+
+      <!-- Content -->
+      <div class="container">
+
+        <!--Grid row-->
+        <div class="row wow fadeIn">
+
+          <!--Grid column-->
+          <div class="col-md-6 mb-4 white-text text-center text-md-left">
+
+            <h1 class="display-4 font-weight-bold">Хочешь связатся с нами?</h1>
+
+            <hr class="hr-light">
+
+
+            <p class="mb-4 d-none d-md-block">
+              <strong>Можешь позвонить или оставить сообщение через email.</strong>
+            </p>
+
+          </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-md-6 col-xl-5 mb-4">
+
+            <!--Card-->
+            <div class="card">
+
+              <!--Card content-->
+              <div class="card-body">
+
+                <!-- Form -->
+                <form name="">
+                  <!-- Heading -->
+                  <h3 class="dark-grey-text text-center">
+                    <strong>Напиши нам:</strong>
+                  </h3>
+                  <hr>
+
+                  <div class="md-form">
+                    <i class="fas fa-user prefix grey-text"></i>
+                    <input type="text" id="form3" class="form-control">
+                    <label for="form3">Ваше имя</label>
+                  </div>
+                  <div class="md-form">
+                    <i class="fas fa-envelope prefix grey-text"></i>
+                    <input type="text" id="form2" class="form-control">
+                    <label for="form2">Ваш email</label>
+                  </div>
+
+                  <div class="md-form">
+                    <i class="fas fa-pencil-alt prefix grey-text"></i>
+                    <textarea type="text" id="form8" class="md-textarea"></textarea>
+                    <label for="form8">Ваше сообщение</label>
+                  </div>
+
+                  <div class="text-center">
+                    <button class="btn btn-indigo">Отправить</button>
+                    <hr>
+                    <fieldset class="form-check">
+                      <input type="checkbox" class="form-check-input" id="checkbox1">
+                      <label for="checkbox1" class="form-check-label dark-grey-text">Подписаться на новости</label>
+                    </fieldset>
+                  </div>
+
+                </form>
+                <!-- Form -->
+
+              </div>
+
+            </div>
+            <!--/.Card-->
+
+          </div>
+          <!--Grid column-->
+
+        </div>
+        <!--Grid row-->
+
+      </div>
+      <!-- Content -->
+
+    </div>
+    <!-- Mask & flexbox options-->
+
+  </div>
+  <!-- Full Page Intro -->
+
+
+
+
+
+</body>
+
+{% endblock content %}

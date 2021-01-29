@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<body>
+
+<!--Main layout-->
+
+
+  <main>
+    <div class="container-fluid" style="background-image: url('http://rts-3.ru/wp-content/uploads/2015/11/parallax01.jpg');">
+
+      <div style="height:40px;"></div>
+        <!--Grid row-->
+      <div class="row row-cols  row-cols-md-2 g-4">
+
+
+        {% for transPut in view.get_transPut %}
+          <div class="col col-lg-3 col-md-12">
+            <div class="card view zoom">
+              <a href="{{ transPut.get_absolute_url }}">
+              <img
+                style="height:400px;"
+                src="media/{{ transPut.poster }}"
+                class="card-img-top"
+              />
+                </a>
+              <div class="card-body">
+                 <a href="{{ transPut.get_absolute_url }}" class="grey-text">
+                   <h4>{{ transPut.title }}</h4>
+                 </a>
+                <p class="card-text">
+                  {{ transPut.prelog }}
+                </p>
+                <!-- Large -->
+                <div class="row">
+              <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+                <a href="{{ transPut.get_absolute_url }}" class="btn btn-primary">Подробнее</a>
+                <a href="/transport/communication" class="btn btn btn-outline-indigo">Заказать</a>
+              </div>
+
+
+                     <div class="col"></div>
+                      <a
+                      class="align-left btn btn-outline-danger fade-in"
+                      > <strong>{{ transPut.price }} ₽</strong></a>
+                </div>
+              </div>
+            </div>
+          </div>
+              {% endfor %}
+
+</div>
+
+
+        </div>
+  </div>
+ </main>
+  <!--Main layout-->
+</body>
+
+
+{% endblock content %}

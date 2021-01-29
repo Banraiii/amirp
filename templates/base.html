@@ -1,0 +1,16 @@
+{% include 'include/header.html' %}
+
+<title>{% block head_title %}{% endblock %}</title>
+
+{% include 'include/navbar.html' %}
+
+</head>
+<body>
+
+{% block content  %}
+{% endblock content %}
+
+
+{% include 'include/footor.html' %}
+
+{% include 'include/scripts.html' %}

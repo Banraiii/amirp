@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+{% load account %}
+{#socialaccount %}#}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+{% block content %}
+<nav class="normal_stayhomes" >
+    <div class="nav-wrapper">
+      <div class="col s12 ">
+        <a href="/list/" class="breadcrumb">Главная</a>
+        <a href="/" class="breadcrumb">Каталог</a>
+        <a href="/accounts/login/" class="breadcrumb">Вход</a>
+      </div>
+    </div>
+  </nav>
+    <div class="row">
+      <div class="col s12">привет, если нашёл. Что ты тут делал ?</div>
+      <div class="col s12">12-columns</div>
+    </div>
+
+<div class="container">
+<div class="row">
+<div class="col s12 red lighten-5"><h3><i class="center orange-text"><h4>{% trans "Sign In" %}</h4></i></h3></div>
+
+<div class="col s12 right-align">
+{#{% get_providers as socialaccount_providers %}#}
+
+{% if socialaccount_providers %}
+<p>{% blocktrans with site.name as site_name %}Пожалуйста, войдите в систему с помощью одной
+из существующих учетных записей. Или, <a href="{{ signup_url }}"> Зарегистрироваться</a>
+на{{ site_name }} учетная запись и вход ниже:{% endblocktrans %}</p>
+
+<div class="socialaccount_ballot">
+
+  <ul class="socialaccount_providers">
+    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+  </ul>
+
+  <div class="login-or">{% trans 'or' %}</div>
+
+</div></div>
+
+{% include "socialaccount/snippets/login_extra.html" %}
+
+{% else %}
+<p>{% blocktrans %}Если вы не имеете аккаунта, пожалуйста
+<a href="{{ signup_url }}">Зарегестрируйтесь!</a> сейчас.{% endblocktrans %}</p>
+{% endif %}
+<div class="col s12 ">
+<form class="login" method="POST" action="{% url 'account_login' %}">
+  <div class="col s3 ">
+    </div>
+  <div class="col s9 ">
+  {% csrf_token %}
+  {{ form.as_p }}
+  {% if redirect_field_value %}
+    </div>
+  <div class="col s12 ">
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
+
+  <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+  <button class="waves-effect waves-light btn-small" type="submit">{% trans "Sign In" %}</button>
+    </div>
+</form>
+</div>
+</div>
+</div>
+{% endblock %}

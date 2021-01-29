@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<head>
+  {% load static %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'css/bootstrap2.css' %}" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="{% static 'css/mdb2.css' %}" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="{% static 'css/style5.css' %}" rel="stylesheet">
+  <link href="{% static 'css/style.from_nav1.css' %}" rel="stylesheet">
+   <style type="text/css">
+    @media (max-width: 740px) {
+
+      html,
+      body,
+      header,
+      .carousel {
+        height: 100vh;
+      }
+    }
+
+    @media (min-width: 800px) and (max-width: 850px) {
+
+      html,
+      body,
+      header,
+      .carousel {
+        height: 100vh;
+      }
+    }
+.dropdown-menu .dropdown-menu {
+	top: auto;
+	left: 100%;
+	transform: translateY(-2rem);
+}
+.dropdown-item + .dropdown-menu {
+	display: block;
+	opacity: 0;
+	transition: opacity .3s 1s;
+}
+.dropdown-item.submenu::after {
+	content: '▸';
+	margin-left: 0.5rem;
+}
+.dropdown-item:hover + .dropdown-menu,
+.dropdown-menu:hover {
+	opacity: 1;
+	transition: opacity .3s .1s;
+}
+html,
+body,
+header,
+.carousel {
+  height: 100%;
+}
+
+@media (min-width: 800px) and (max-width: 850px) {
+  .navbar:not(.top-nav-collapse) {
+    background: #1C2331 !important;
+  }
+}
+
+  </style>

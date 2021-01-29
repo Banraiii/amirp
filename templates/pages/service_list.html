@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<body>
+
+<!--Main layout-->
+
+
+  <main>
+    <div class="container-fluid" style="background-image: url('http://rts-3.ru/wp-content/uploads/2015/11/parallax01.jpg');">
+
+      <div style="height:40px;"></div>
+        <!--Grid row-->
+      <div class="row row-cols  row-cols-md-2 g-4">
+
+
+        {% for service in services_list %}
+          <div class="col col-lg-4 col-md-12">
+            <div class="card view zoom">
+              <a href="{{service.get_absolute_url }}">
+              <img
+                style="height:500px;"
+                src="media/{{ service.poster }}"
+                class="card-img-top"
+              />
+                </a>
+              <div class="card-body">
+                 <a href="{{ service.get_absolute_url }}" class="grey-text">
+                   <h4>{{ service.title }}</h4>
+                 </a>
+                <p class="card-text">
+                  {{ service.prelog }}
+                </p>
+                <!-- Large -->
+                <div class="row">
+              <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
+                <a href="{{service.get_absolute_url }}" class="btn btn-primary">Подробнее</a>
+                <a href="/servicese/communication" class="btn btn btn-outline-indigo">Заказать</a>
+              </div>
+
+
+                     <div class="col"></div>
+                      <a
+                      class="align-left btn btn-outline-danger fade-in"
+                      > <strong>{{ service.price }} ₽</strong></a>
+                </div>
+              </div>
+            </div>
+          </div>
+              {% endfor %}
+
+
+</div>
+
+
+        </div>
+  </div>
+ </main>
+  <!--Main layout-->
+</body>
+
+
+{% endblock content %}
